@@ -65,14 +65,15 @@ def getData(balance_ones=True):
     
     return X,y
 
-def main():
-    X,y= getData(False)
-    print(X.shape)
-    print(y.shape)
-    
-
-    
-if __name__ == '__main__':
-    main()
+##TESTING
+#def main():
+#    X,y= getData(False)
+#    print(X.shape)
+#    print(y.shape)
+#
+#
+#
+#if __name__ == '__main__':
+#    main()
 
     
