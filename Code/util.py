@@ -14,7 +14,7 @@ def sigmoid(A):
 
 def tanh(A):
     return np.tanh(A)
-    
+
 def softmax(A):
     expA = np.exp(A)
     return expA/expA.sum(axis=1,keepdims=True)
@@ -86,7 +86,7 @@ def getBinaryData(balance_ones=True):
         X1 = X[y==1]
         X1 = np.repeat(X1,len(X0)/len(X1),axis=0)
         X = np.vstack([X0,X1])
-        y = np.concatenate((y0,[1]*len(X1)))
+        y = np.array([0]*len(X0)+[1]*len(X1))
     return X,y
 
 #TESTING
