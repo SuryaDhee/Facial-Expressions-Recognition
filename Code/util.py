@@ -40,11 +40,39 @@ def y2indicator(y):
 def getData(balance_ones=True):
     
     path = '../Data/face_data.csv'
-    data = pd.read_csv('path')
-    y = data[0]
-    X = data[1:]
+    data = pd.read_csv(path)
+    y = data['emotion']
+    X = []
+    for i in range(len(data)):
+        X.append(data[' pixels'][i].split(' '))
     
-    X,y = np.array(X)/255.0 , np.array(y)
     
-    if balance_ones:
-        pass
+    X = np.array(X)
+    X = X.astype('float32')
+    X = np.divide(X,255.0)
+    y = np.array(y)
+    
+    
+    if(balance_ones):
+        X0, y0 = X[y!=1], y[y!=1]
+        X1 = X[y==1]
+        print("len(X0): "+str(len(X0)))
+        print("len(X1): "+str(len(X1)))
+        print("len(X0)/len(X1): "+str(len(X0)/len(X1)))
+        X1 = np.repeat(X1,len(X0)/len(X1),axis=0)
+        X = np.vstack([X0,X1])
+        y = np.concatenate((y0,[1]*len(X1)))
+    
+    return X,y
+
+def main():
+    X,y= getData(False)
+    print(X.shape)
+    print(y.shape)
+    
+
+    
+if __name__ == '__main__':
+    main()
+
+    

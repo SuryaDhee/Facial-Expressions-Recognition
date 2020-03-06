@@ -17,7 +17,7 @@ def main():
             plt.imshow(x[j].reshape(48,48),cmap ='gray')
             plt.title(label_map[y[j]])
             plt.show()
-        prompt = raw_input("Quit? Enter Y :")
+        prompt = input("Quit? Enter Y :")
         if(prompt == 'Y'):
             break
 if __name__ == '__main__':
