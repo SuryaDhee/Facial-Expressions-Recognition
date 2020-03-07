@@ -80,7 +80,7 @@ class ANN:
 
     def score(self,X,Y):
         prediction = self.forward(X)
-        return (1 - error_rate(Y,prediction))*100
+        return (1 - error_rate(Y,prediction))
 
 
 
