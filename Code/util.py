@@ -25,9 +25,12 @@ def sigmoid_cost(T,Y):
 def cost(T,Y):
     return -(T*np.log(Y)).sum()
 
-def cost2(T,Y):###
+#Same as cost but more efficient
+def cost2(T,Y):
     N = len(T)
     return -np.log(Y[np.arange(N),T]).sum() #Without zeros ; Indexing Y using T
+    
+    
 
 def error_rate(targets,predictions):
     return np.mean(targets!=predictions)

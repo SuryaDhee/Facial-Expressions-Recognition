@@ -40,7 +40,8 @@ class ANN:
             # print("pY_Y.shape"+str(pY_Y.shape))
             self.W2 -= learning_rate*(Z.T.dot(pY_Y) + regularisation*self.W2)
             self.b2 -= learning_rate*(pY_Y.sum() + regularisation*self.b2)
-            dZ = pY_Y.dot(self.W2.T) * (Z>0) #s
+            dZ = pY_Y.dot(self.W2.T) * (Z>0) #Relu
+            dZ = pY_Y.dot(self.W2.T) * (1-Z*Z) #Relu
             # dZ = np.outer(pY_Y, self.W2) * (Z > 0) #lp
 
             self.W1 -= learning_rate*(X.T.dot(dZ) + regularisation*self.W1)
