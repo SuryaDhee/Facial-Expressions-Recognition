@@ -9,7 +9,7 @@ class ANN:
 
     def fit(self,X,Y,learning_rate=5e-7,regularisation=1.0,epochs=10000,show_fig=False):
         X,Y = shuffle(X,Y)
-        #Y = np.reshape(Y,(len(Y),1))
+        Y = np.reshape(Y,(len(Y),1)) #s
         # print("X.shape"+str(X.shape))
         # print("Y.shape"+str(Y.shape))
         Xvalid, Yvalid = X[-1000:],Y[-1000:]
@@ -17,12 +17,12 @@ class ANN:
         # print("X.shape"+str(X.shape))
         # print("Y.shape"+str(Y.shape))
         N,D = X.shape
-        # self.W1,self.b1 = init_weight_and_bias(D,self.M)
-        # self.W2,self.b2 = init_weight_and_bias(self.M,1)
-        self.W1 = np.random.randn(D, self.M) / np.sqrt(D)
-        self.b1 = np.zeros(self.M)
-        self.W2 = np.random.randn(self.M) / np.sqrt(self.M)
-        self.b2 = 0
+        self.W1,self.b1 = init_weight_and_bias(D,self.M) #s
+        self.W2,self.b2 = init_weight_and_bias(self.M,1) #s
+        # self.W1 = np.random.randn(D, self.M) / np.sqrt(D) #lp
+        # self.b1 = np.zeros(self.M) #lp
+        # self.W2 = np.random.randn(self.M) / np.sqrt(self.M) #lp
+        # self.b2 = 0 #lp
 
         costs = []
         best_validation_error = 1
@@ -40,8 +40,8 @@ class ANN:
             # print("pY_Y.shape"+str(pY_Y.shape))
             self.W2 -= learning_rate*(Z.T.dot(pY_Y) + regularisation*self.W2)
             self.b2 -= learning_rate*(pY_Y.sum() + regularisation*self.b2)
-            #dZ = pY_Y.dot(self.W2.T) * (Z>0)
-            dZ = np.outer(pY_Y, self.W2) * (Z > 0)
+            dZ = pY_Y.dot(self.W2.T) * (Z>0) #s
+            # dZ = np.outer(pY_Y, self.W2) * (Z > 0) #lp
 
             self.W1 -= learning_rate*(X.T.dot(dZ) + regularisation*self.W1)
             self.b1 -= learning_rate*(np.sum(dZ,axis=0) + regularisation*self.b1)
@@ -89,12 +89,12 @@ class ANN:
 
 def main():
     X, Y = getBinaryData()
-    print("X.shape"+str(X.shape))
-    print("Y.shape"+str(Y.shape))
-    X0 = X[Y==0]
-    X1 = X[Y==1]
-    print("X0.shape"+str(X0.shape))
-    print("X1.shape"+str(X1.shape))
+    # print("X.shape"+str(X.shape))
+    # print("Y.shape"+str(Y.shape))
+    # X0 = X[Y==0]
+    # X1 = X[Y==1]
+    # print("X0.shape"+str(X0.shape))
+    # print("X1.shape"+str(X1.shape))
 
     model = ANN(100)
     model.fit(X,Y,show_fig = True)
