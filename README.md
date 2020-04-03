@@ -8,9 +8,9 @@ Data obtained from https://www.kaggle.com/c/challenges-in-representation-learnin
 
 Images are classified into several expressions like Angry, Sad, Surprised etc. Some examples are shown below 
 
->>  <img src='Images/Angry.png' width=200> <img src='Images/Surprise.png' width=200> <img src='Images/Fear.png' width=200> 
+ &nbsp; &nbsp; &nbsp; &nbsp; <img src='Images/Angry.png' width=200> <img src='Images/Surprise.png' width=200> <img src='Images/Fear.png' width=200> 
 
->>>>> <img src='Images/Neutral.png' width=200> <img src='Images/Angry2.png' width=200>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;<img src='Images/Neutral.png' width=200> <img src='Images/Angry2.png' width=200>
 
 
 
