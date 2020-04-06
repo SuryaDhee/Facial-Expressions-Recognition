@@ -43,4 +43,4 @@ Images are classified into several expressions like Angry, Sad, Surprised etc. S
 ```
 
 
-For more information on code, check my website [here](https://suryadheeshjith.github.io/projects/facial_expression_recognition/)
+For more information on code, check my website [here](https://suryadheeshjith.github.io/projects/2020-02-20-facial_expression_recognition/)
